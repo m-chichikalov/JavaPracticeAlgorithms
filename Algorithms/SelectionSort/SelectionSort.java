@@ -1,6 +1,6 @@
-package SortMethods.SelectionSort;
+package Algorithms.SelectionSort;
 
-import SortMethods.SortAbstract;
+import Algorithms.SortAbstract;
 
 public class SelectionSort extends SortAbstract {
 

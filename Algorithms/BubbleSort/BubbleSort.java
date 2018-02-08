@@ -1,6 +1,6 @@
-package SortMethods.BubbleSort;
+package Algorithms.BubbleSort;
 
-import SortMethods.SortAbstract;
+import Algorithms.SortAbstract;
 
 public class BubbleSort extends SortAbstract {
     private int[] data;

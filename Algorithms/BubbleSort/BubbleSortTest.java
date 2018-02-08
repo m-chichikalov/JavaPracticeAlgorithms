@@ -1,4 +1,4 @@
-package SortMethods.BubbleSort;
+package Algorithms.BubbleSort;
 
 import org.junit.Assert;
 import org.junit.Test;

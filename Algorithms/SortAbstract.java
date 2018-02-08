@@ -1,4 +1,4 @@
-package SortMethods;
+package Algorithms;
 
 public abstract class SortAbstract {
 

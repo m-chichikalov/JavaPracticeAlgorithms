@@ -60,6 +60,9 @@ public class LevenshteinDistanceTest extends Assert{
 
         result = LevenshteinDistance.apply("rv9", "rv9yw");
         assertEquals(result, 2);
+
+        result = LevenshteinDistance.apply("9yw", "rv9yw");
+        assertEquals(result, 2);
     }
 
     @Test
@@ -83,6 +86,29 @@ public class LevenshteinDistanceTest extends Assert{
 
         result = LevenshteinDistance.apply("rv9yw", "rv9yww");
         assertEquals(result, 1);
+
+        result = LevenshteinDistance.apply("abcde", "cdef");
+        assertEquals(result, 3);
+
+//        result = LevenshteinDistance.apply("abcde", "cFeG");
+//        assertEquals(result, 4);
+    }
+
+    @Test
+    public void extraTest () {
+
+        int result = LevenshteinDistance.apply("elephant", "hippo");
+        assertEquals(result, 7);
+
+        result = LevenshteinDistance.apply("hippo", "elephant");
+        assertEquals(result, 7);
+
+        result = LevenshteinDistance.apply("hippo", "elephippoant");
+        assertEquals(result, 7);
+
+//        result = LevenshteinDistance.apply("hippoooo", "elephant");
+//        assertEquals(result, 8);
+
     }
 
 

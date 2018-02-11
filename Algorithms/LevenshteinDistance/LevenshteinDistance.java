@@ -32,14 +32,58 @@ package Algorithms.LevenshteinDistance;
 public class LevenshteinDistance {
 
     public static int apply(CharSequence first, CharSequence second) {
+        int distance = 0;
+        int secondInd = 0;
+        int firstInd;
+
         if (first == null || second == null) {
             throw new IllegalArgumentException();
         }
 
-        if (first.length() == 0) return second.length();
-        if (second.length() == 0) return first.length();
+        int fLen = first.length();
+        int sLen = second.length();
 
-        return 0;
+        if (fLen == 0) return sLen;
+        if (sLen == 0) return fLen;
+
+        if (first.equals(second)) return 0;
+
+
+        if (fLen > sLen) {
+            CharSequence temp = first;
+            first = second;
+            second = temp;
+
+            int tmp = fLen;
+            fLen = sLen;
+            sLen = tmp;
+        }
+
+        for (firstInd = 0; (secondInd < sLen); ) {
+            if (firstInd < fLen) {
+                if (first.charAt(firstInd) == second.charAt(secondInd)) {
+                    firstInd++;
+                    secondInd++;
+                } else {
+                    secondInd++;
+                    distance++;
+                    if (firstInd + 1 < fLen && secondInd < sLen) {
+                        if (first.charAt(firstInd + 1) == second.charAt(secondInd)) {
+                            firstInd++;
+                        }
+                    }
+                }
+            } else {
+                distance++;
+                secondInd ++;
+            }
+        }
+//        if (fLen != firstInd && fLen != sLen) { distance += (fLen - firstInd); }
+//        return distance + (sLen - secondInd);
+//        if (extraAtTheEnd) {
+//            distance += ((fLen - firstInd) + (sLen - secondInd));
+//        }
+        return distance;
     }
 
 
